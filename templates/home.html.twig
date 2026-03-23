@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>scratch.waaseyaa.org — Built from Scratch</title>
+  <meta name="description" content="A Waaseyaa framework site deployed from composer create-project to production. Proof for the blog post.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --fg: #fafafa;
+      --muted: #525252;
+      --accent: #3b82f6;
+      --accent-dim: #1e3a5f;
+      --surface: #141414;
+      --border: #1e1e1e;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+      max-width: 680px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .greeting {
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      text-align: center;
+      margin-bottom: 12px;
+      min-height: 1.2em;
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .greeting.fade-out { opacity: 0; }
+    .greeting[dir="rtl"] { direction: rtl; unicode-bidi: bidi-override; }
+
+    .subtitle {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 48px;
+      line-height: 1.6;
+    }
+
+    .proof-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      width: 100%;
+      margin-bottom: 32px;
+    }
+
+    .proof-card h2 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .proof-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .proof-row:last-child { border-bottom: none; }
+
+    .proof-label {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .proof-value {
+      color: var(--fg);
+      font-weight: 500;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.85rem;
+    }
+
+    .proof-value.highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .command-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      width: 100%;
+      margin-bottom: 32px;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.8;
+      overflow-x: auto;
+    }
+
+    .command-block .prompt { color: var(--accent); }
+    .command-block .cmd { color: var(--fg); }
+    .command-block .comment { color: #333; font-style: italic; }
+
+    .links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+
+    .links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      transition: color 0.2s ease;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .links a:hover {
+      color: var(--fg);
+      border-color: var(--muted);
+    }
+
+    footer {
+      padding: 24px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.75rem;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--fg); }
+
+    @media (max-width: 480px) {
+      .proof-row { flex-direction: column; gap: 4px; }
+      .links { gap: 12px; }
+      .command-block { padding: 16px; font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <div class="greeting" id="greeting"
+      data-greetings="Ahnii,Hello,Bonjour,Hola,你好,こんにちは,안녕하세요,नमस्ते,สวัสดี,مرحبا,שלום,Привет,Merhaba,Sawubona,Aloha,Kia ora,Ciao,Olá,Hej,Γεια σου"
+      data-rtl="مرحبا,שלום"
+    >Ahnii</div>
+
+    <p class="subtitle">
+      This site was deployed from <code>composer create-project</code> to production HTTPS.<br>
+      It exists as proof for a blog post.
+    </p>
+
+    <div class="command-block">
+      <span class="comment"># The entire scaffold</span><br>
+      <span class="prompt">$</span> <span class="cmd">composer create-project waaseyaa/waaseyaa scratch-waaseyaa --stability dev</span><br>
+      <span class="prompt">$</span> <span class="cmd">git push</span><br>
+      <span class="comment"># GitHub Actions builds, rsyncs, and Deployer handles the rest</span>
+    </div>
+
+    <div class="proof-card">
+      <h2>Deployment Receipt</h2>
+      <div class="proof-row">
+        <span class="proof-label">Framework</span>
+        <span class="proof-value">Waaseyaa v0.1.0-alpha.52</span>
+      </div>
+      <div class="proof-row">
+        <span class="proof-label">Packages</span>
+        <span class="proof-value">104</span>
+      </div>
+      <div class="proof-row">
+        <span class="proof-label">Scaffold command</span>
+        <span class="proof-value">composer create-project</span>
+      </div>
+      <div class="proof-row">
+        <span class="proof-label">Web server</span>
+        <span class="proof-value">Caddy + PHP 8.4 FPM</span>
+      </div>
+      <div class="proof-row">
+        <span class="proof-label">TLS</span>
+        <span class="proof-value">Automatic (Let's Encrypt)</span>
+      </div>
+      <div class="proof-row">
+        <span class="proof-label">Deployment</span>
+        <span class="proof-value">Deployer via GitHub Actions</span>
+      </div>
+      <div class="proof-row">
+        <span class="proof-label">Date deployed</span>
+        <span class="proof-value">2026-03-23</span>
+      </div>
+    </div>
+
+    <nav class="links">
+      <a href="https://jonesrussell.github.io/blog/waaseyaa-deployment/">Read the blog post</a>
+      <a href="https://github.com/waaseyaa/framework">Waaseyaa framework</a>
+      <a href="https://waaseyaa.org">waaseyaa.org</a>
+    </nav>
+  </main>
+
+  <footer>
+    <p>
+      Built with <a href="https://github.com/waaseyaa/framework">Waaseyaa</a> on PHP 8.4 + Symfony 7 + Twig<br>
+      Deployed to <a href="https://www.digitalocean.com/">DigitalOcean</a> via <a href="https://deployer.org/">Deployer</a>
+    </p>
+  </footer>
+
+  <script>
+    (function () {
+      var el = document.getElementById('greeting');
+      if (!el) return;
+      var all = el.getAttribute('data-greetings').split(',');
+      var rtlSet = new Set((el.getAttribute('data-rtl') || '').split(','));
+      var rest = all.slice(1);
+      var queue = shuffle(rest.slice());
+      function shuffle(a) {
+        for (var i = a.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var t = a[i]; a[i] = a[j]; a[j] = t;
+        }
+        return a;
+      }
+      function next() {
+        if (!queue.length) { queue = shuffle(rest.slice()); queue.unshift(all[0]); }
+        var w = queue.shift();
+        el.classList.add('fade-out');
+        setTimeout(function () {
+          el.textContent = w;
+          if (rtlSet.has(w)) el.setAttribute('dir', 'rtl');
+          else el.removeAttribute('dir');
+          el.classList.remove('fade-out');
+        }, 500);
+      }
+      setInterval(next, 2400);
+    })();
+  </script>
+
+</body>
+</html>
